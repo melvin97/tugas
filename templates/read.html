@@ -1,0 +1,54 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+<title></title>
+<link rel="stylesheet" href="style.css" type="text/css" />
+<script type="text/javascript">
+function edt_id(id)
+{
+ if(confirm('Yakin Mau di Edit ?'))
+ {
+  window.location.href='edit_data.php?edit_id='+id;
+ }
+}
+function delete_id(id)
+{
+ if(confirm('Yakin Mau di Delete ?'))
+ {
+  window.location.href='read.php?delete_id='+id;
+ }
+}
+</script>
+</head>
+<body>
+<center>
+
+<div id="body">
+ <div id="content">
+    <table align="center">
+        <tr>
+            <th colspan="5"><a href="createdata.php">Tambah Data </a></th>
+        </tr>
+        <tr>
+            <th>Nama Depan </th>
+            <th>Nama Belakang</th>
+            <th>Nama Kota</th>
+            <th colspan="2">Perintah</th>
+        </tr>
+        {% for data in datas %}
+            <tr>
+                <td>{{data.firstName}}</td>
+                <td>{{data.lastName}}</td>
+                <td>{{data.userCity}}</td>
+                <td align="center"><a href="javascript:edt_id('{{data.userId}}')"><img src="edit.png" align="EDIT" style="width:50px;"></a></td>
+                <td align="center"><a href="javascript:delete_id('{{data.userId}}')"><img src="delete.png" align="DELETE" style="width:50px;"></a></td>
+            </tr>
+        {% endfor %}
+    </table>
+    </div>
+</div>
+
+</center>
+</body>
+</html>

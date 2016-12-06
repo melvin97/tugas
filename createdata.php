@@ -1,6 +1,6 @@
 <?php
 require_once "db.php";
-
+require_once "twig.php";
 
 if(isset($_POST['btn-save']))
 {
@@ -19,7 +19,7 @@ if(isset($_POST['btn-save']))
 
     header("Location:read.php");
 } else {
-    echo "<p>Data produk belum diisi!</p>";
+    echo $twig->render("createdata.html");
 }
         
       
